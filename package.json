@@ -1,0 +1,22 @@
+{
+  "name": "kurea-idlehelp",
+  "version": "1.0.0",
+  "description": "The IdleLands helper module for Kurea.",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IdleLands/kurea-idlehelp.git"
+  },
+  "author": "Kyle Kemp <kyle@seiyria.com> (http://seiyria.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IdleLands/kurea-idlehelp/issues"
+  },
+  "homepage": "https://github.com/IdleLands/kurea-idlehelp",
+  "dependencies": {
+    "underscore.string": "^3.0.0"
+  }
+}
