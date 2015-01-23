@@ -36,4 +36,7 @@ module.exports = (Module) ->
       @addRoute "issue :issue", (origin, route) =>
         @reply origin, "https://github.com/IdleLands/IdleLands/issues/#{route.params.issue}"
 
+      @addRoute "doks *", (origin, route) =>
+        @reply origin, "http://doks.idle.land/#!/?filter=#{encodeURIComponent route.splats[0]}"
+
   IdleHelpModule
