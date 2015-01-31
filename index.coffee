@@ -19,6 +19,9 @@ module.exports = (Module) ->
 
     constructor: (moduleManager) ->
       super moduleManager
+      
+      @addRoute "status", (origin) =>
+        @reply origin, "http://gunshowcomic.com/comics/20130109.png"
 
       @addRoute "repo", (origin) =>
         @reply origin, "https://github.com/IdleLands/IdleLands"
