@@ -1,5 +1,5 @@
 module.exports = (Module) ->
-  _ = {}
+  _ = require "underscore"
   _.str = require "underscore.string"
   cheerio = require 'cheerio'
   ent = require 'ent'
