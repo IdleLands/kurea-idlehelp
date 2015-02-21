@@ -48,10 +48,13 @@ module.exports = (Module) ->
       @on 'message', (bot, sender, channel, message) =>
         @moduleManager.canModuleRoute @, bot.getServer(), channel, false, =>
           regex = /#(\d+)/g
+          
+          issues = []
           while issue = regex.exec message
-            link = "https://github.com/IdleLands/IdleLands/issues/#{issue[1]}"
+            issues.push "https://github.com/IdleLands/IdleLands/issues/#{issue[1]}"
   
-            request link, (e,r,body) =>
+          _.each issues, (link) ->
+            request link, (e, r, body) =>
               return unless r
               return if r.headers['content-type']?.indexOf('text/html') is -1
               $ = cheerio.load body
