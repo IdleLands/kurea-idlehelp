@@ -57,6 +57,6 @@ module.exports = (Module) ->
             title = $('title').html()?.replace(/\r?\n|\r/g, '').trim()
             return unless title
             title = ent.decode title
-            bot.say channel, title if title?
+            bot.say channel, "#{link} [#{title}]" if title?
 
   IdleHelpModule
