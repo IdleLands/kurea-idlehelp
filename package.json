@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/IdleLands/kurea-idlehelp",
   "dependencies": {
-    "underscore.string": "^3.0.0"
+    "underscore.string": "^3.0.0",
+    "cheerio": "~0.12.4",
+    "request": "~2.29.0",
+    "ent": "~2.0.0"
   }
 }
