@@ -46,17 +46,18 @@ module.exports = (Module) ->
         @reply origin, "http://doks.idle.land/#!/?filter=#{encodeURIComponent route.splats[0]}"
 
       @on 'message', (bot, sender, channel, message) =>
-        regex = /#(\d+)/g
-        while issue = regex.exec message
-          link = "https://github.com/IdleLands/IdleLands/issues/#{issue[1]}"
-
-          request link, (e,r,body) =>
-            return unless r
-            return if r.headers['content-type']?.indexOf('text/html') is -1
-            $ = cheerio.load body
-            title = $('title').html()?.replace(/\r?\n|\r/g, '').trim()
-            return unless title
-            title = ent.decode title
-            bot.say channel, "#{link} [#{title}]" if title?
+        @moduleManager.canModuleRoute @, bot.getServer(), channel, false, =>
+          regex = /#(\d+)/g
+          while issue = regex.exec message
+            link = "https://github.com/IdleLands/IdleLands/issues/#{issue[1]}"
+  
+            request link, (e,r,body) =>
+              return unless r
+              return if r.headers['content-type']?.indexOf('text/html') is -1
+              $ = cheerio.load body
+              title = $('title').html()?.replace(/\r?\n|\r/g, '').trim()
+              return unless title
+              title = ent.decode title
+              bot.say channel, "#{link} [#{title}]" if title?
 
   IdleHelpModule
