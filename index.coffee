@@ -30,7 +30,7 @@ module.exports = (Module) ->
         @reply origin, "https://github.com/IdleLands/IdleLands"
 
       @addRoute "player :player", (origin, route) =>
-        @reply origin, "http://idle.land/s/stats/#{route.params.player}"
+        @reply origin, "http://idle.land/s/stats/#{route.params.player.split(' ').join '%20'}"
 
       @addRoute "global :page", (origin, route) =>
         @reply origin, "http://idle.land/s/#{route.params.page}"
