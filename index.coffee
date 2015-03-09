@@ -10,6 +10,7 @@ module.exports = (Module) ->
     helpText:
       default: "I can get a wiki page for IdleLands!"
       'player': 'I can get you a link to a players page!'
+      'guild': 'I can get you a link to the guilds page!'
       'repo': 'I can get the repo link for IdleLands!'
       'global': 'I can link you to any of the global pages quickly!'
       'issue': 'Get the page for an issue!'
@@ -17,6 +18,7 @@ module.exports = (Module) ->
       default: "wiki [page]"
       'repo': "repo"
       'player': "player [player-name]"
+      'guild': "guild [guild-name]"
       'global': "global [page]"
       'issue': "issue [issue-number]"
 
@@ -31,6 +33,9 @@ module.exports = (Module) ->
 
       @addRoute "player :player", (origin, route) =>
         @reply origin, "http://idle.land/s/stats/#{route.params.player.split(' ').join '%20'}"
+
+      @addRoute "guild :guild", (origin, route) =>
+        @reply origin, "http://idle.land/s/guild/#{route.params.guild.split(' ').join '%20'}"
 
       @addRoute "global :page", (origin, route) =>
         @reply origin, "http://idle.land/s/#{route.params.page}"
