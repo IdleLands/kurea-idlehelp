@@ -14,6 +14,7 @@ module.exports = (Module) ->
       'repo': 'I can get the repo link for IdleLands!'
       'global': 'I can link you to any of the global pages quickly!'
       'issue': 'Get the page for an issue!'
+      'map': 'Get a link to a map and their coordinates'
     usage:
       default: "wiki [page]"
       'repo': "repo"
@@ -21,6 +22,7 @@ module.exports = (Module) ->
       'guild': "guild [guild-name]"
       'global': "global [page]"
       'issue': "issue [issue-number]"
+      'map': "map \"[map-name]\" [map-x] [map-y]"
 
     constructor: (moduleManager) ->
       super moduleManager
@@ -36,6 +38,9 @@ module.exports = (Module) ->
 
       @addRoute "guild :guild", (origin, route) =>
         @reply origin, "http://idle.land/s/guild/#{route.params.guild.split(' ').join '%20'}"
+
+      @addRoute "map \":map\" :mapx :mapy", (origin, route) =>
+        @reply origin, "http://idle.land/s/maps/#{route.params.map.split(' ').join '%20'}?x=#{route.params.mapx}&y=#{route.params.mapy}"
 
       @addRoute "global :page", (origin, route) =>
         @reply origin, "http://idle.land/s/#{route.params.page}"
