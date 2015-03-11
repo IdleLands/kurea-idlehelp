@@ -40,7 +40,7 @@ module.exports = (Module) ->
         @reply origin, "http://idle.land/s/guild/#{route.params.guild.split(' ').join '%20'}"
 
       @addRoute "map ':map' :mapx :mapy", (origin, route) =>
-        @reply origin, "http://idle.land/s/maps/#{route.params.map.split(' ').join '%20'},"?x="#{route.params.mapx},"&y="#{route.params.mapy}"
+        @reply origin, "http://idle.land/s/maps/#{route.params.map.split(' ').join '%20'},?x=#{route.params.mapx},&y=#{route.params.mapy}"
 
       @addRoute "global :page", (origin, route) =>
         @reply origin, "http://idle.land/s/#{route.params.page}"
